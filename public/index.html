@@ -1,0 +1,26 @@
+<!doctype html>
+<html ng-app="daniTodo">
+    <head>
+        <!-- META -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Optimize mobile viewport -->
+        <title>To-do</title>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+        <script src="https://cdn1.lncld.net/static/js/av-min-1.2.1.js"></script>
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/angular-route/angular-route.min.js"></script>
+        <script src="js/core.js"></script>
+        <script src="js/controllers/main.js"></script>
+				<script src="js/controllers/directive.js"></script>
+        <script src="js/services/todos.js"></script>
+        <body>
+            <div class="container">
+                <div ng-view></div>
+                <footer ng-include="'footer.html'"></footer>
+            </div>
+        </body>
+    </html>

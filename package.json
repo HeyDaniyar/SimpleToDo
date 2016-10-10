@@ -1,0 +1,34 @@
+{
+  "name": "node-todo",
+  "version": "0.0.0",
+  "description": "Simple todo application.",
+  "main": "server.js",
+  "author": "Daniyar",
+  "dependencies": {
+    "body-parser": "^1.4.3",
+    "express": "~4.6.1",
+    "leancloud-storage": "^1.3.3",
+    "method-override": "~2.1.1",
+    "mongoose": "~3.8.13",
+    "morgan": "~1.1.1",
+    "request": "^2.75.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:HeyDaniyar/SimpleToDo.git"
+  },
+  "keywords": [
+    "to-do",
+    "angular",
+    "leancloud"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HeyDaniyar/SimpleToDo/issues"
+  },
+  "homepage": "https://github.com/HeyDaniyar/SimpleToDo"
+}
