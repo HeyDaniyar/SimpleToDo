@@ -9,6 +9,7 @@ lib-cov
 *.map
 pids
 logs
+*.DS_Store
 
 npm-debug.log
 node_modules
