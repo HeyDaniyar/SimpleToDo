@@ -1,4 +1,4 @@
-# Node Todo App
+# Simple Todo App
 
 A Node app built with  LeanCloud and Angular. For personal purposes.
 
