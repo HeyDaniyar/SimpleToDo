@@ -1,0 +1,16 @@
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+*.map
+pids
+logs
+
+npm-debug.log
+node_modules
+bower_components
+public/.sass-cache/*
