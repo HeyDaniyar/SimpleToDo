@@ -25,8 +25,7 @@ exports.getTodayTask = function(req, res, nex) {
 exports.postTodo = function(req, res, next) {
   var tasksData = req.body.data;
   var objectId = req.body.id;
-  console.log('reqBody===', req.body);
-  // the first param is  className，the second is  objectId
+  // the first param is className，the second is  objectId
   //when there is no object id ,the lean cloud will automatically create new Todo
   var todo = AV.Object.createWithoutData('Todo', objectId);
   //uplate the taks
