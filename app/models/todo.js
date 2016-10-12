@@ -34,6 +34,7 @@ exports.postTodo = function(req, res, next) {
   // save to leancloud
   todo.save().then(function(todo) {
       console.log('New Object created with objectId:', todo.id);
+      res.send(todo.id)
     }, function(err) {
       console.log('Failed to create new object', err.message);
     })

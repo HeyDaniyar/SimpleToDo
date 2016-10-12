@@ -55,8 +55,11 @@
             data: vm.todayTask,
             id: vm.taskObjectId
           }
-          Todo.create(reqBody).success(function() {
-            console.log('successfully update')
+          Todo.create(reqBody).success(function(newObjId) {
+            console.log('newObject Id ==',newObjId);
+            //when add the task for first time;
+            //we should get the right objectId
+            vm.taskObjectId = newObjId;
           })
         },
         adjustColor: function(level) {
@@ -91,7 +94,7 @@
     //include add new taks, delete task and modify the task
     $scope.$watch('vm.todayTask', function(newVal, oldVal) {
       if (newVal === oldVal) return;
-      console.log('successfully update')
+      // console.log('successfully update')
       Task.update();
     }, true)
 
