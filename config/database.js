@@ -1,7 +1,6 @@
-var AV = require('leancloud-storage');
-var APP_ID = 'UvC62I6gsoJDjX60VTigIqPJ-gzGzoHsz';
-var APP_KEY = '8fwXng20h0kV53gWxp126pmd';
-AV.init({
-  appId: APP_ID,
-  appKey: APP_KEY
-});
+// var APP_ID = '9WeebXiqJ76O4rezX4nFKnis';
+// var APP_KEY = 'y9ipgiiPTEyiHoo3FNTzGjRb';
+// AV.init({
+//   appId: APP_ID,
+//   appKey: APP_KEY
+// });

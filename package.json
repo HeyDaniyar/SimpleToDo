@@ -2,21 +2,23 @@
   "name": "node-todo",
   "version": "0.0.0",
   "description": "Simple todo application.",
-  "main": "server.js",
+  "main": "app.js",
   "author": "Daniyar",
   "dependencies": {
     "body-parser": "^1.4.3",
+    "cookie-parser": "^1.4.3",
     "express": "~4.6.1",
+    "express-session": "^1.14.1",
     "leancloud-storage": "^1.3.3",
+    "log4js": "^0.6.38",
     "method-override": "~2.1.1",
     "mongoose": "~3.8.13",
     "morgan": "~1.1.1",
     "request": "^2.75.0"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node app.js"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git@github.com:HeyDaniyar/SimpleToDo.git"

@@ -2,11 +2,12 @@ var express = require('express');
 var app = express();
 var port = process.env.PORT || 8080;
 var database = require('./config/database');
-var morgan = require('morgan');
 var bodyParser = require('body-parser');
-var methodOverride = require('method-override');
-var routes = require('./app/routes.js');
+var cookieParser = require('cookie-parser');
+var routes = require('./route/routes.js');
 var path = require('path');
+var log4js = require('log4js');
+var session = require('express-session');
 var AV = require('leancloud-storage');
 var APP_ID = '9WeebXiqJ76O4rezX4nFKnis-gzGzoHsz';
 var APP_KEY = 'y9ipgiiPTEyiHoo3FNTzGjRb';
@@ -18,8 +19,23 @@ AV.init({
 //for pass the object in http post
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
-routes(app);
 app.use(express.static(__dirname + '/public'));
-// listen (start app with node server.js) ======================================
 app.listen(port);
 console.log("App listening on port " + port);
+//add log
+var log = log4js.getLogger("app");
+app.use(log4js.connectLogger(log4js.getLogger("http"), {
+  level: 'auto'
+}));
+// add session and cookie
+app.use(cookieParser());
+
+app.use(session({
+  secret: 'SimpleTodo',
+  cookie: {
+    maxAge: 1000 * 3600 * 24 * 365,
+  },
+  resave: false,
+  saveUninitialized: true
+}));
+routes(app);
