@@ -21,15 +21,17 @@
         get: (function() {
           Todo.getTodayTasks().success(function(data) {
             //if there is no any task yet
-            if (data.length === 0) {
+            var tasks = data.tasks;
+            vm.username = data.username;
+            if (tasks.length === 0) {
               vm.showRemark = true;
               vm.loading = false;
               return;
             }
             console.log('get today task', data);
             vm.loading = false;
-            vm.todayTask = data[0].tasks;
-            vm.taskObjectId = data[0].objectId;
+            vm.todayTask = tasks[0].tasks;
+            vm.taskObjectId = tasks[0].objectId;
           });
         }()),
         create: function() {
