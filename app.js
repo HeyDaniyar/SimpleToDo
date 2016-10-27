@@ -8,6 +8,7 @@ var routes = require('./route/routes.js');
 var path = require('path');
 var log4js = require('log4js');
 var session = require('express-session');
+var open = require('open');
 var AV = require('leancloud-storage');
 var APP_ID = '9WeebXiqJ76O4rezX4nFKnis-gzGzoHsz';
 var APP_KEY = 'y9ipgiiPTEyiHoo3FNTzGjRb';
@@ -22,6 +23,7 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 app.listen(port);
 console.log("App listening on port " + port);
+open('http://localhost:' + port);
 //add log
 var log = log4js.getLogger("app");
 app.use(log4js.connectLogger(log4js.getLogger("http"), {

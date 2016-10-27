@@ -32,5 +32,8 @@
   "bugs": {
     "url": "https://github.com/HeyDaniyar/SimpleToDo/issues"
   },
-  "homepage": "https://github.com/HeyDaniyar/SimpleToDo"
+  "homepage": "https://github.com/HeyDaniyar/SimpleToDo",
+  "devDependencies": {
+    "open": "0.0.5"
+  }
 }
