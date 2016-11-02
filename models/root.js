@@ -2,14 +2,15 @@ var AV = require('leancloud-storage');
 var log = require("log4js").getLogger("app");
 
 exports.root = function(req, res) {
-  //use AV user way
-  var currentUser = AV.User.current();
-  if (currentUser) {
-    res.sendfile('./public/home.html');
-  } else {
-    //currentUser is null, open the login page
-    res.redirect('/login');
-  }
+  // //use AV user way
+  // var currentUser = AV.User.current();
+  // if (currentUser) {
+  //   res.sendfile('./public/home.html');
+  // } else {
+  //   //currentUser is null, open the login page
+  //   res.redirect('/login');
+  // }
+  res.render('./src/index.tmpl.ejs')
 }
 
 exports.getLogin = function(req, res) {
