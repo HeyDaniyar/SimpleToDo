@@ -1,0 +1,128 @@
+<div ng-controller="ToDoController as vm">
+    <div class="jumbotron text-center">
+        <h1>
+            {{vm.username}}'s To-do
+            <span class="label label-info">
+                {{ vm.todayTask.length }}
+            </span>
+        </h1>
+    </div>
+    <div id="todo-list" class="row">
+        <div class="todayTaskContainer">
+            <div class="todayTaskContainer">
+                <div class="checkbox todayTask">
+                <li ng-repeat="todo in vm.todayTask" ng-class="{'finished':todo.status ==='finished'}">
+                    <input ng-disabled="todo.status ==='finished'" ng-checked="todo.status === 'finished'" type="checkbox" ng-click="todo.status = 'finished'"/>
+                    <span ng-class="vm.adjustColor(todo.level)">
+                        {{ todo.content }}
+                    </span>
+                    <div class="tagContianer">
+                        <label class="tag" ng-show="todo.tags.length &gt; 0 ">
+                            {{todo.tags}}
+                        </label>
+                    </div>
+                    <div class="icon menu" ng-click="vm.currentTaskIndex = $index" tool-menu="" attr-type="optionsBox"></div>
+                </li>
+            </div>
+            <p class="text-center" ng-show="vm.loading">
+                <span class="fa fa-spinner fa-spin fa-3x"></span>
+            </p>
+            <div class="noTaskLabel" ng-show="vm.showRemark">
+                <h2>
+                    “Live a day you will remember”
+                </h2>
+            </div>
+        </div>
+    </div>
+    <!-- FORM TO CREATE TODOS -->
+    <div id="todo-form" class="row">
+        <div class="col-sm-8 col-sm-offset-2 text-center">
+            <div class="form-group taskInput">
+                <input type="text" class="form-control input-lg text-center" ng-model="vm.formData.text"/>
+                <span ng-show="vm.formData.tag.length &gt; 0 " class="tag">
+                    #{{vm.formData.tag}}
+                </span>
+                <i class="fa fa-flag" ng-class="vm.adjustColor(vm.formData.level)" tool-menu="" attr-type="flagBox"></i>
+                <i class="fa fa-tag" aria-hidden="true" tool-menu="" attr-type="tagBox"></i>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg " ng-click="vm.createToDo()">
+                Add
+            </button>
+        </div>
+    </div>
+</div>
+<div class="AmiMenu" id="optionsBox" attr-index="{{$index}}">
+    <table cellpadding="0" cellspacing="0" attr-index="{{$index}}">
+        <tbody>
+            <tr class="menu_indent" ng-show="vm.todayTask[vm.currentTaskIndex].status === 'finished'">
+                <td class="">
+                    <div>
+                        <label ng-click="vm.undoFinish(vm.currentTaskIndex)">
+                            Undo finished
+                        </label>
+                    </div>
+                </td>
+            </tr>
+            <tr class="menu_indent">
+                <td class="">
+                    <div>
+                        <label ng-click="vm.deleteTask(vm.currentTaskIndex)">
+                            Delete Taks{{$index}}
+                        </label>
+                    </div>
+                </td>
+            </tr>
+            <tr class="menu_indent" ng-show="vm.todayTask[vm.currentTaskIndex].status === 'going'">
+                <td class="">
+                    <div class="flagLevel">
+                        <label>
+                            Set Level
+                        </label>
+                        <span class="fa fa-flag" style="color:red" ng-click="vm.setTaskLevel(2)"></span>
+                        <span class="fa fa-flag" style="color:orange" ng-click="vm.setTaskLevel(1)"></span>
+                        <span class="fa fa-flag" style="color:gray" ng-click="vm.setTaskLevel(0)"></span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="AmiMenu" id="flagBox">
+    <div class="level">
+        <ul>
+            <li class="labelName">
+                Level
+            </li>
+            <li>
+                <span class="fa fa-flag" style="color:red" ng-click="vm.formData.level = '2'"></span>
+                <span class="fa fa-flag" style="color:orange" ng-click="vm.formData.level = '1'"></span>
+                <span class="fa fa-flag" style="color:gray" ng-click="vm.formData.level = '0'"></span>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="AmiMenu " id="tagBox">
+    <div class="level">
+        <ul>
+            <li ng-click="vm.setTaskTag('Personal')">
+                <i style="background-color:tomato"></i>
+                <label>Personal</label>
+            </li>
+            <li ng-click="vm.setTaskTag('Work')">
+                <i style="background-color:pink"></i>
+                <label>Working</label>
+            </li>
+            <li ng-click="vm.setTaskTag('Learning')">
+                <i style="background-color:orange"></i>
+                <label>Learning</label>
+            </li>
+            <li ng-click="vm.setTaskTag('Other')">
+                <i style="background-color:grey"></i>
+                <label>
+                    Playing
+                </label>
+            </li>
+        </ul>
+    </div>
+</div>
+</div>

@@ -1,0 +1,25 @@
+{
+  "name": "public",
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "authors": [
+    "dani"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.5.8",
+    "jquery": "~3.1.1",
+    "angular-route": "~1.5.8",
+    "bootstrap": "~3.3.7",
+    "animate.css": "~3.5.2"
+  }
+}
