@@ -1,6 +1,6 @@
 import angular from 'angular';
-import Gate from './gate/Gate';
-import Home from './home/Home';
+import Gate from './gate/gate';
+import Home from './home/home';
 
 export default angular.module('components', [
   Gate.name,

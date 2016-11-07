@@ -1,35 +1,33 @@
-'use strict'
-
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const PATHS = {
-  app: __dirname + '/src',
+  app: __dirname + '/app',
   bower: __dirname + '/app/bower_components'
 };
 
 module.exports = {
-  port: '8080',
-  devtool: 'eval',
-  entry: [
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/dev-server',
-    './src/index'
-  ],
+  entry: path.join(__dirname, './src/index.js'),
   output: {
-    path: path.join(PATHS.app, 'dist'),
+    path: path.join(__dirname, './app/public'),
     filename: 'app.js'
   },
-  plugins: [new webpack.optimize.UglifyJsPlugin({
+  cache: false,
+  devtool: false,
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
       compressor: {
         warnings: false,
       },
     }),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
-    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    })
   ],
   module: {
     loaders: [{
@@ -63,9 +61,4 @@ module.exports = {
       loader: 'url?limit=10000&mimetype=image/svg+xml'
     }, ]
   },
-  devServer: {
-    contentBase: './dist',
-    hot: true,
-    inline: true,
-  }
 }

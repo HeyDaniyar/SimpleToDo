@@ -13,6 +13,7 @@ class OverviewCtrl {
     this.$scope = $scope;
     this.$state = $state;
     this.taskApiService = taskApiService;
+    this.showLoading = false;
   }
 
   $onInit() {
@@ -25,23 +26,25 @@ class OverviewCtrl {
   }
 
   getUserTasks() {
+    this.showLoading = true;
     this.taskApiService.getUserTaskInfo().then((data) => {
-      console.log('data', data);
+      this.showLoading = false;
       this.user = data;
-      console.log('this.user', this.user);
       this.$scope.$apply();
     });
   }
 
   updateUserTasks(newTasks) {
+    this.showLoading = true;
     if (this.user.tasksInfo) {
       this.user.tasksInfo = newTasks;
       this.taskApiService.updateUserTasks(this.user).then((data) => {
-        // this.user.tasksId = data.tasksId;
-        // this.user.tasksInfo = data.tasksInfo;
+        this.showLoading = false;
+        if (this.user.tasksId === '') {
+          this.user.tasksId = data.tasksId;
+        }
       })
     }
-
   }
 
 }

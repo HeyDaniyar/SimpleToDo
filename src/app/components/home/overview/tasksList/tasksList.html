@@ -2,7 +2,7 @@
     <div class="todayTaskContainer">
         <div class="todayTaskContainer">
             <div class="checkbox todayTask">
-            <li ng-repeat="todo in $ctrl.tasks" ng-class="{'finished':todo.status ==='finished'}">
+            <li ng-repeat="todo in $ctrl.tasks track by $index" ng-class="{'finished':todo.status ==='finished'}">
                 <input ng-disabled="todo.status ==='finished'" ng-checked="todo.status === 'finished'" type="checkbox" ng-click="todo.status = 'finished'"/>
                 <span ng-class="$ctrl.adjustColor(todo.level)">
                     {{ todo.content }}

@@ -1,0 +1,36 @@
+<div class="AmiMenu" id="optionsBox" attr-index="{{$index}}">
+    <table cellpadding="0" cellspacing="0" attr-index="{{$index}}">
+        <tbody>
+            <tr class="menu_indent" ng-show="$ctrl.tasks[$ctrl.currentTaskIndex].status === 'finished'">
+                <td class="">
+                    <div>
+                        <label ng-click="$ctrl.undoFinish($ctrl.currentTaskIndex)">
+                            Undo finished
+                        </label>
+                    </div>
+                </td>
+            </tr>
+            <tr class="menu_indent">
+                <td class="">
+                    <div>
+                        <label ng-click="$ctrl.deleteTask($ctrl.currentTaskIndex)">
+                            Delete Taks{{$index}}
+                        </label>
+                    </div>
+                </td>
+            </tr>
+            <tr class="menu_indent" ng-show="$ctrl.todayTask[$ctrl.currentTaskIndex].status === 'going'">
+                <td class="">
+                    <div class="flagLevel">
+                        <label>
+                            Set Level
+                        </label>
+                        <span class="fa fa-flag" style="color:red" ng-click="$ctrl.setTaskLevel(2)"></span>
+                        <span class="fa fa-flag" style="color:orange" ng-click="$ctrl.setTaskLevel(1)"></span>
+                        <span class="fa fa-flag" style="color:gray" ng-click="$ctrl.setTaskLevel(0)"></span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

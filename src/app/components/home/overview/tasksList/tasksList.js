@@ -4,8 +4,11 @@ import TasksListTemplate from './tasksList.html';
 class TasksListCtrl {
   constructor() {}
   $onInit() {
-    this.showRemark = true;
-    this.loading = false;
+    this.showRemark = false;
+    //when there is no tasks yet
+    if (this.tasks.id === '') {
+      this.showRemark = true;
+    }
   }
 }
 export default angular

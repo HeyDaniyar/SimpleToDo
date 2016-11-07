@@ -7,6 +7,7 @@ import './login.css';
 class LoginCtrl {
   constructor($state, userApiService, taskApiService) {
     'ngInject';
+
     this.$state = $state;
     this.userApiService = userApiService;
   }
@@ -32,7 +33,7 @@ class LoginCtrl {
         })
         .then((data) => {
           this.isLoginPending = false;
-          console.log('data',data);
+          console.log('data', data);
           this.$state.go('home.overview');
         })
         .catch((data) => {

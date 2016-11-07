@@ -34,7 +34,9 @@ class TaskFormCtrl {
   createTask() {
     if (this.newTask.content) {
       this.showRemark = false;
+      console.log('this.newTask',this.newTask);
       this.tasks.push(this.newTask);
+      console.log('this tasks',this.tasks);
       this.tasksUpdate({
         newTasks: this.tasks
       });
