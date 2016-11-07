@@ -3,7 +3,7 @@ import overviewTemplate from './overview.html';
 import HeadInfo from './headInfo/headInfo';
 import TaskForm from './taskForm/taskForm';
 import TasksList from './tasksList/tasksList';
-
+import OptionBox from './optionBox';
 
 import './overview.scss';
 
@@ -35,6 +35,7 @@ class OverviewCtrl {
   }
 
   updateUserTasks(newTasks) {
+    console.log('this is updateUserTasks', newTasks);
     this.showLoading = true;
     if (this.user.tasksInfo) {
       this.user.tasksInfo = newTasks;
@@ -46,13 +47,14 @@ class OverviewCtrl {
       })
     }
   }
-
 }
+
 export default angular
   .module('home.overview', [
     HeadInfo.name,
     TaskForm.name,
     TasksList.name,
+    OptionBox.name,
   ])
   .component('overview', {
     controller: OverviewCtrl,

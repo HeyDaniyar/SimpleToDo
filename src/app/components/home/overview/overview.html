@@ -1,5 +1,5 @@
 <div>
   <head-info name="$ctrl.user.username" tasks="$ctrl.user.tasksInfo"></head-info>
-  <tasks-list tasks="$ctrl.user.tasksInfo"></tasks-list>
+  <tasks-list tasks="$ctrl.user.tasksInfo"  tasks-update="$ctrl.updateUserTasks(newTasks)"></tasks-list>
   <task-form  tasks="$ctrl.user.tasksInfo" tasks-update="$ctrl.updateUserTasks(newTasks)"></task-form>
 </div>

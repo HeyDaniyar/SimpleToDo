@@ -1,10 +1,10 @@
-<div class="AmiMenu" id="optionsBox" attr-index="{{$index}}">
-    <table cellpadding="0" cellspacing="0" attr-index="{{$index}}">
+<div ng-show="$ctrl.showBox" class="AmiMenu" id="optionsBox" ng-mouseleave ='$ctrl.hideBox()'>
+    <table cellpadding="0" cellspacing="0" >
         <tbody>
-            <tr class="menu_indent" ng-show="$ctrl.tasks[$ctrl.currentTaskIndex].status === 'finished'">
+            <tr class="menu_indent" ng-show="$ctrl.tasks[$ctrl.taskIndex].status === 'finished'">
                 <td class="">
                     <div>
-                        <label ng-click="$ctrl.undoFinish($ctrl.currentTaskIndex)">
+                        <label ng-click="$ctrl.undoFinish()">
                             Undo finished
                         </label>
                     </div>
@@ -13,13 +13,13 @@
             <tr class="menu_indent">
                 <td class="">
                     <div>
-                        <label ng-click="$ctrl.deleteTask($ctrl.currentTaskIndex)">
-                            Delete Taks{{$index}}
+                        <label ng-click="$ctrl.deleteTask()">
+                            Delete Taks
                         </label>
                     </div>
                 </td>
             </tr>
-            <tr class="menu_indent" ng-show="$ctrl.todayTask[$ctrl.currentTaskIndex].status === 'going'">
+            <tr class="menu_indent" ng-show="$ctrl.tasks[$ctrl.taskIndex].status === 'going'">
                 <td class="">
                     <div class="flagLevel">
                         <label>

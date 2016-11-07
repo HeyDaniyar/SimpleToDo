@@ -5,86 +5,15 @@
             <!-- <span ng-show="$ctrl.newTask.tag." class="tag">
                 {{$ctrl.newTask.tag}}
             </span> -->
-            <i class="fa fa-flag"></i>
-            <i class="fa fa-tag"></i>
+            <i class="fa fa-flag" box-position-adjust ng-click="$ctrl.showFlagBox = true">
+              <flag-option new-task="$ctrl.newTask" show-box="$ctrl.showFlagBox" hide-box="$ctrl.showBox = false"><flag-option>
+            </i>
+            <i class="fa fa-tag" box-position-adjust ng-click="$ctrl.showTagBox = true">
+              <tag-option new-task="$ctrl.newTask"  show-box="$ctrl.showTagBox" hide-box="$ctrl.showBox = false"><tag-option>
+              </i>
         </div>
-        <button type="submit" class="btn btn-primary btn-lg " ng-click="$ctrl.createTask()">
+        <button type="submit" class="btn btn-primary btn-lg submitButton" ng-click="$ctrl.createTask()">
             Add
         </button>
     </div>
 </div>
-
-<!-- <div class="AmiMenu" id="optionsBox" attr-index="{{$index}}">
-    <table cellpadding="0" cellspacing="0" attr-index="{{$index}}">
-        <tbody>
-            <tr class="menu_indent" ng-show="vm.todayTask[vm.currentTaskIndex].status === 'finished'">
-                <td class="">
-                    <div>
-                        <label ng-click="vm.undoFinish(vm.currentTaskIndex)">
-                            Undo finished
-                        </label>
-                    </div>
-                </td>
-            </tr>
-            <tr class="menu_indent">
-                <td class="">
-                    <div>
-                        <label ng-click="vm.deleteTask(vm.currentTaskIndex)">
-                            Delete Taks{{$index}}
-                        </label>
-                    </div>
-                </td>
-            </tr>
-            <tr class="menu_indent" ng-show="vm.todayTask[vm.currentTaskIndex].status === 'going'">
-                <td class="">
-                    <div class="flagLevel">
-                        <label>
-                            Set Level
-                        </label>
-                        <span class="fa fa-flag" style="color:red" ng-click="vm.setTaskLevel(2)"></span>
-                        <span class="fa fa-flag" style="color:orange" ng-click="vm.setTaskLevel(1)"></span>
-                        <span class="fa fa-flag" style="color:gray" ng-click="vm.setTaskLevel(0)"></span>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-<div class="AmiMenu" id="flagBox">
-    <div class="level">
-        <ul>
-            <li class="labelName">
-                Level
-            </li>
-            <li>
-                <span class="fa fa-flag" style="color:red" ng-click="vm.formData.level = '2'"></span>
-                <span class="fa fa-flag" style="color:orange" ng-click="vm.formData.level = '1'"></span>
-                <span class="fa fa-flag" style="color:gray" ng-click="vm.formData.level = '0'"></span>
-            </li>
-        </ul>
-    </div>
-</div>
-<div class="AmiMenu " id="tagBox">
-    <div class="level">
-        <ul>
-            <li ng-click="vm.setTaskTag('Personal')">
-                <i style="background-color:tomato"></i>
-                <label>Personal</label>
-            </li>
-            <li ng-click="vm.setTaskTag('Work')">
-                <i style="background-color:pink"></i>
-                <label>Working</label>
-            </li>
-            <li ng-click="vm.setTaskTag('Learning')">
-                <i style="background-color:orange"></i>
-                <label>Learning</label>
-            </li>
-            <li ng-click="vm.setTaskTag('Other')">
-                <i style="background-color:grey"></i>
-                <label>
-                    Playing
-                </label>
-            </li>
-        </ul>
-    </div>
-</div> -->

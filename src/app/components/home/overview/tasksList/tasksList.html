@@ -3,7 +3,8 @@
         <div class="todayTaskContainer">
             <div class="checkbox todayTask">
             <li ng-repeat="todo in $ctrl.tasks track by $index" ng-class="{'finished':todo.status ==='finished'}">
-                <input ng-disabled="todo.status ==='finished'" ng-checked="todo.status === 'finished'" type="checkbox" ng-click="todo.status = 'finished'"/>
+                <input ng-disabled="todo.status ==='finished'" ng-checked="todo.status === 'finished'"
+                 type="checkbox" ng-click="$ctrl.finishTask($index)"/>
                 <span ng-class="$ctrl.adjustColor(todo.level)">
                     {{ todo.content }}
                 </span>
@@ -12,8 +13,10 @@
                         {{todo.tags}}
                     </label>
                 </div>
-                <div class="icon menu" ng-click="$ctrl.currentTaskIndex = $index" tool-menu="" attr-type="optionsBox"></div>
+                <div class="icon menu" ng-click="$ctrl.taskOptionHanlder($index)" box-position-adjust></div>
             </li>
+            <task-option task-index="$ctrl.taskIndex" tasks="$ctrl.tasks" tasks-update="$ctrl.tasksUpdate({
+              newTasks: $ctrl.tasks})" show-box="$ctrl.showTaskOption" hide-box="$ctrl.showTaskOption = false"></task-option>
         </div>
         <p class="text-center" ng-show="$ctrl.loading">
             <span class="fa fa-spinner fa-spin fa-3x"></span>
