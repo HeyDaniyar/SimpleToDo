@@ -1,0 +1,20 @@
+<div id="todo-form" class="row">
+    <div class="col-sm-8 col-sm-offset-2 text-center">
+        <div class="form-group taskInput">
+            <input type="text" class="form-control input-lg text-center" ng-model="$ctrl.newTask.content"/>
+            <!-- <span ng-show="$ctrl.newTask.tag." class="tag">
+                {{$ctrl.newTask.tag}}
+            </span> -->
+            <i class="fa fa-flag" box-position-adjust ng-click="$ctrl.showFlagBox = true"></i>
+            <flag-option new-task="$ctrl.newTask" show-box="$ctrl.showFlagBox" hide-box="$ctrl.showFlagBox = false"
+            tasks-update="$ctrl.tasksUpdate({newTasks: $ctrl.tasks})"></flag-option>
+            <i class="fa fa-tag" box-position-adjust ng-click="$ctrl.showTagBox = true"></i>
+            <tag-option new-task="$ctrl.newTask"  show-box="$ctrl.showTagBox" hide-box="$ctrl.showTagBox = false"
+            tasks-update="$ctrl.tasksUpdate({newTasks: $ctrl.tasks})"></tag-option>
+        </div>
+          <!-- <md-button class="md-raised" ng-click="$ctrl.createTask()">Add</md-button> -->
+        <button type="submit" class="btn btn-primary btn-lg submitButton" ng-click="$ctrl.createTask()">
+            Add
+        </button>
+    </div>
+</div>

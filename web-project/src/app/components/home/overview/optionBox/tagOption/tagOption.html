@@ -1,0 +1,24 @@
+<div ng-if="$ctrl.showBox" class="AmiMenu " id="tagBox" ng-mouseleave ="$ctrl.hideBox()">
+    <div class="level">
+        <ul>
+            <li ng-click="$ctrl.addTag('Personal')">
+                <i style="background-color:tomato"></i>
+                <label>Personal</label>
+            </li>
+            <li ng-click="$ctrl.addTag('Work')">
+                <i style="background-color:pink"></i>
+                <label>Working</label>
+            </li>
+            <li ng-click="$ctrl.addTag('Learning')">
+                <i style="background-color:orange"></i>
+                <label>Learning</label>
+            </li>
+            <li ng-click="$ctrl.addTag('Other')">
+                <i style="background-color:grey"></i>
+                <label>
+                    Playing
+                </label>
+            </li>
+        </ul>
+    </div>
+</div>
