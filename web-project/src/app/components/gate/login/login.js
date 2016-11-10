@@ -5,11 +5,13 @@ import loginTemplate from './login.html';
 import './login.css';
 
 class LoginCtrl {
-  constructor($state, userApiService, taskApiService) {
+  constructor($scope, $state, userApiService) {
     'ngInject';
 
+    this.$scope = $scope;
     this.$state = $state;
     this.userApiService = userApiService;
+
   }
 
   $onInit() {
@@ -18,7 +20,7 @@ class LoginCtrl {
       password: '',
     };
 
-    this.loginFailedMsg = '';
+    this.loginFailedMsg = ""
     this.isLoginPendeng = false;
   }
 
@@ -33,13 +35,10 @@ class LoginCtrl {
         })
         .then((data) => {
           this.isLoginPending = false;
-          console.log('data', data);
-          if (data) {
-            this.$state.go('home.overview');
-          } else {
-            alert('用户名或密码错误')
+          if (data.code !== 200) {
+            this.loginFailedMsg = data.message;
+            this.$scope.$apply();
           }
-
         })
         .catch((data) => {
           this.isLoginPending = false;

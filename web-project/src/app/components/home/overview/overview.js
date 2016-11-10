@@ -4,7 +4,6 @@ import HeadInfo from './headInfo/headInfo';
 import TaskForm from './taskForm/taskForm';
 import TasksList from './tasksList/tasksList';
 import OptionBox from './optionBox';
-
 import './overview.scss';
 
 class OverviewCtrl {
@@ -22,7 +21,7 @@ class OverviewCtrl {
       username: '',
       tasksId: '',
       tasksInfo: [],
-    }
+    };
     this.getUserTasks();
   }
 
@@ -36,7 +35,6 @@ class OverviewCtrl {
   }
 
   updateUserTasks(newTasks) {
-    console.log('this is updateUserTasks', newTasks);
     this.showLoading = true;
     if (this.user.tasksInfo) {
       this.user.tasksInfo = newTasks;

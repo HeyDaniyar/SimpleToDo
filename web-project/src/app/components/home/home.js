@@ -1,6 +1,7 @@
 import angular from 'angular';
 import Overview from './overview/overview';
 import Footer from './footer/footer';
+import './home.scss';
 import homeTemplate from './home.html';
 
 class HomeCtrl {

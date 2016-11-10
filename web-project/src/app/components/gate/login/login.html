@@ -2,6 +2,9 @@
     <form name="loginForm" class="login" >
         <fieldset>
             <legend class="legend">Login</legend>
+            <div class="login-failed" ng-if="$ctrl.loginFailedMsg" >
+                    <span>{{$ctrl.loginFailedMsg}}</span>
+            </div>
             <div class="input">
                 <input name="username" ng-model="$ctrl.user.username" ng-focus="$ctrl.hideUserIcon = true"  ng-blur="$ctrl.hideUserIcon=false" type="text"  ng-minlength="3" placeholder="userName" required/>
                 <div class="error-messages input-error" ng-messages="loginForm.username.$error" role="alert" ng-show="loginForm.username.$touched">
@@ -27,8 +30,5 @@
             <span class='signupSpan' ng-click="$ctrl.registerClickHandler()">sign up</span>
         </fieldset>
         <div class="feedback"></div>
-        <div class="login-failed" ng-show="!$ctrl.loginFailedMsg">
-                <span ng-bind="$ctrl.loginFailedMsg"></span>
-            </div>
     </form>
 </div>

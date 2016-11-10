@@ -1,0 +1,28 @@
+
+body {
+	padding-top: 50px;
+	font: normal 16px/24px "Roboto",sans-serif;
+}
+ul {
+	list-style: none;
+}
+
+li {
+	display: inline-block;
+}
+
+img {
+	width: 100px;
+	height: 100px;
+}
+
+
+footer{
+  width:100%;
+  position: absolute;
+  margin-top: 0;
+  bottom:20px;
+  .sign{
+    text-align: center;
+  }
+}

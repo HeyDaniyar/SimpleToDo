@@ -18,6 +18,11 @@ class TaskApiService {
   getUserTaskInfo() {
     const username = AV.User.current().attributes.username;
     const query = new AV.Query(username);
+    query.first().then((data) => {
+      console.log('query data', data);
+    }, (error) => {
+      //there is no er
+    })
     let userTasksInfo = {
         username: username,
         tasksInfo: [],

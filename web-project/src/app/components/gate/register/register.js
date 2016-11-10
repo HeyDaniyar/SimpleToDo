@@ -5,10 +5,10 @@ import registerTemplate from './register.html';
 import './../login/login.css';
 
 class RegisterCtrl {
-  constructor($state) {
+  constructor(userApiService) {
     'ngInject';
 
-    this.$state = $state;
+    this.userApiService = userApiService;
   }
 
   $onInit() {
@@ -17,30 +17,30 @@ class RegisterCtrl {
       password: '',
       repeatPassword: '',
     };
-
     this.loginFailedMsg = '';
     this.isLoginPendeng = false;
   }
 
-  loginClickHandler(form) {
+  registerClickHandler(form) {
     form.$setSubmitted();
-
-    // if (form.$valid) {
-    //   this.isLoginPending = true;
-    //   this.userApiService
-    //     .login({
-    //       username: this.user.username,
-    //       password: this.user.pwd,
-    //     })
-    //     .then((data) => {
-    //       this.isLoginPending = false;
-    //       this.$state.go('home.overview');
-    //     })
-    //     .catch((data) => {
-    //       this.isLoginPending = false;
-    //       this.loginFailedMsg = 'Sorry, Login Failded';
-    //     })
-    // }
+    if (form.$valid) {
+      this.userApiService
+        .signup({
+          username: this.user.username,
+          password: this.user.password,
+        })
+        .then((data) => {
+          console.log('data==', data);
+          console.log('Welcome,Successlly registered');
+          this.userApiService.createUserScheme({
+            username: this.user.username
+          });
+        })
+        .catch((data) => {
+          this.isLoginPending = false;
+          this.loginFailedMsg = 'Sorry, Register Failded';
+        })
+    }
   }
 }
 export default angular

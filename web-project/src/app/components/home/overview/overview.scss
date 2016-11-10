@@ -1,38 +1,9 @@
 
-body {
-	padding-top: 50px;
-	font: normal 16px/24px "Roboto",sans-serif;
-}
-
 #todo-list {
 	margin-bottom: 30px;
 	font: normal 16px/24px "Roboto",sans-serif;
 }
 
-ul {
-	list-style: none;
-}
-
-li {
-	display: inline-block;
-}
-
-img {
-	width: 100px;
-	height: 100px;
-}
-
-.uploadMenuForm {
-	margin: 0 30%;
-}
-
-.uploadMenuForm button {
-	margin: 0 40%;
-}
-
-footer {
-	margin-top: 100px;
-}
 /*TASK*/
 .todayTaskContainer {
 	width: 70vw;
@@ -191,3 +162,7 @@ footer {
 }
 
 .normal {}
+
+foter {
+
+}
